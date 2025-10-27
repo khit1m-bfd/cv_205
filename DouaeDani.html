@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CV Créatif — Prénom Nom</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f1724;--card:#0b1220;--accent1:#ff7ab6;--accent2:#7ce4ff;--text:#e6eef8;--muted:#94a3b8}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(1200px 400px at 10% 10%, rgba(124,58,237,0.12), transparent 12%), radial-gradient(1000px 600px at 90% 80%, rgba(14,165,164,0.06), transparent 12%),var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+
+    .wrap{max-width:1100px;margin:36px auto;padding:24px}
+    .card{display:grid;grid-template-columns:360px 1fr;gap:28px;border-radius:18px;padding:0;overflow:hidden;box-shadow:0 20px 50px rgba(2,6,23,0.6)}
+
+    /* SIDEBAR */
+    .side{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:34px 24px;position:relative}
+    .avatar{width:150px;height:150px;border-radius:20px;overflow:hidden;margin:0 auto 14px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent1),var(--accent2));font-weight:700;font-size:36px;color:#041022}
+    h1{font-family:Playfair Display,serif;margin:6px 0;font-size:26px;text-align:center}
+    .role{text-align:center;color:var(--muted);font-size:14px;margin-bottom:14px}
+    .bio{font-size:13px;color:var(--muted);line-height:1.5;padding:6px 8px;text-align:center}
+
+    .contact{margin-top:18px}
+    .contact p{font-size:13px;color:var(--muted);margin:8px 0}
+
+    .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;justify-content:center}
+    .tag{background:rgba(255,255,255,0.03);padding:8px 12px;border-radius:999px;font-weight:600;font-size:13px}
+
+    /* MAIN */
+    .main{padding:30px 36px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
+    .controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+    .btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:8px 12px;border-radius:10px;color:var(--text);cursor:pointer}
+    .accent{background:linear-gradient(90deg,var(--accent1),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent;font-weight:700}
+
+    .section{margin-bottom:18px}
+    .section h2{display:flex;align-items:center;gap:12px;font-size:16px;margin:0 0 12px}
+
+    .timeline{border-left:2px dashed rgba(255,255,255,0.04);padding-left:18px}
+    .item{position:relative;padding:12px 18px;margin-bottom:14px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);border-radius:12px}
+    .item:before{content:'';width:12px;height:12px;border-radius:4px;background:var(--accent2);position:absolute;left:-26px;top:18px;box-shadow:0 6px 18px rgba(0,0,0,0.5)}
+    .meta{font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+
+    /* skills */
+    .skill{margin-bottom:12px}
+    .skill .bar{height:12px;background:rgba(255,255,255,0.04);border-radius:999px;overflow:hidden}
+    .skill .fill{height:100%;width:60%;border-radius:999px;background:linear-gradient(90deg,var(--accent1),var(--accent2));transform-origin:left;transition:width 900ms cubic-bezier(.2,.9,.2,1)}
+
+    /* projects grid */
+    .projects{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .proj{padding:12px;border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));min-height:80px}
+
+    /* floating blobs */
+    .blob{position:absolute;filter:blur(36px);opacity:0.6;z-index:0}
+    .blob.b1{width:360px;height:360px;background:linear-gradient(45deg,var(--accent1),transparent);left:-160px;top:-120px;border-radius:50%}
+    .blob.b2{width:260px;height:260px;background:linear-gradient(45deg,var(--accent2),transparent);right:-120px;bottom:-100px;border-radius:50%}
+
+    footer{display:flex;justify-content:space-between;align-items:center;margin-top:18px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.02);font-size:13px;color:var(--muted)}
+
+    /* responsive */
+    @media (max-width:880px){.card{grid-template-columns:1fr}.side{display:flex;gap:14px;padding:18px}.avatar{width:90px;height:90px}.main{padding:20px}}
+
+    /* subtle entrance */
+    .item, .proj, .skill .fill{transform:translateY(6px);opacity:0;animation:enter .6s forwards}
+    .item:nth-child(1){animation-delay:0.05s}.item:nth-child(2){animation-delay:0.12s}.item:nth-child(3){animation-delay:0.18s}
+    @keyframes enter{to{transform:none;opacity:1}}
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="article">
+
+      <div class="side">
+        <div class="blob b1" aria-hidden="true"></div>
+        <div class="avatar">DN</div>
+        <h1>Prénom Nom</h1>
+        <div class="role">Développeur·se Frontend créatif·ve</div>
+        <p class="bio">J'aime transformer des idées en interfaces vivantes — création UI/UX, animations légères et sites performants. Passion pour le design et le code propre.</p>
+
+        <div class="contact">
+          <p><strong>Email:</strong> prenom.nom@email.com</p>
+          <p><strong>Tél:</strong> +212 6 12 34 56 78</p>
+          <p><strong>Localisation:</strong> Tanger, Maroc</p>
+        </div>
+
+        <div class="tags" aria-hidden="false">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Animations</span>
+          <span class="tag">Figma</span>
+        </div>
+
+        <div style="margin-top:18px;text-align:center">
+          <button class="btn" id="download">Télécharger PDF</button>
+        </div>
+      </div>
+
+      <main class="main">
+        <div class="blob b2" aria-hidden="true"></div>
+        <div class="controls">
+          <div><span class="accent">Portfolio créatif</span> · CV moderne</div>
+          <div>
+            <button class="btn" id="toggleTheme">Inverser thème</button>
+          </div>
+        </div>
+
+        <section class="section">
+          <h2>À propos</h2>
+          <p class="muted">Développeur front‑end spécialisé dans les animations CSS/JS et les expériences web interactives. Je crée des interfaces qui racontent une histoire — équilibre entre esthétique et performance.</p>
+        </section>
+
+        <section class="section">
+          <h2>Expériences</h2>
+          <div class="timeline">
+            <div class="item">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Lead Front‑end — Studio Créa</strong><span class="muted">2023 — Aujourd'hui</span></div>
+              <div class="meta muted">Direction technique UI · Animation micro‑interactions · Optimisation</div>
+            </div>
+
+            <div class="item">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Développeur Front — Agence Pixel</strong><span class="muted">2020 — 2023</span></div>
+              <div class="meta muted">Intégration de designs, accessibilité, performance web</div>
+            </div>
+
+            <div class="item">
+              <div style="display:flex;justify-content:space-between;align-items:center"><strong>Stagiaire — WebLab</strong><span class="muted">2019 — 2020</span></div>
+              <div class="meta muted">Création de landing pages et petites applications</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Compétences</h2>
+          <div class="skill"><div style="display:flex;justify-content:space-between"><div>HTML & CSS</div><div class="muted">95%</div></div><div class="bar"><div class="fill" style="width:95%"></div></div></div>
+          <div class="skill"><div style="display:flex;justify-content:space-between"><div>JavaScript</div><div class="muted">88%</div></div><div class="bar"><div class="fill" style="width:88%"></div></div></div>
+          <div class="skill"><div style="display:flex;justify-content:space-between"><div>Design & Figma</div><div class="muted">80%</div></div><div class="bar"><div class="fill" style="width:80%"></div></div></div>
+        </section>
+
+        <section class="section">
+          <h2>Projets récents</h2>
+          <div class="projects">
+            <div class="proj">
+              <strong>Sweetness Bakery</strong>
+              <div class="muted">Site e‑commerce — panier JS, admin PHP/MySQL</div>
+            </div>
+            <div class="proj">
+              <strong>LuxStay</strong>
+              <div class="muted">Landing + réservation — animations micro‑interactions</div>
+            </div>
+            <div class="proj">
+              <strong>Portfolio interactif</strong>
+              <div class="muted">Expériences web animées et démonstrations</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>Éducation</h2>
+          <div class="item" style="border-left:none;padding-left:0">
+            <div style="display:flex;justify-content:space-between"><strong>Licence Informatique — Université XYZ</strong><span class="muted">2016 — 2019</span></div>
+            <div class="muted">Cours: développement web, algorithmes, bases de données</div>
+          </div>
+        </section>
+
+        <footer>
+          <div class="muted">Prêt·e à collaborer sur des projets créatifs et challengers.</div>
+          <div>LinkedIn · GitHub</div>
+        </footer>
+      </main>
+
+    </div>
+  </div>
+
+  <script>
+    // Toggle theme: invert background for light preview
+    const root = document.documentElement;
+    const toggle = document.getElementById('toggleTheme');
+    toggle.addEventListener('click', ()=>{
+      if(root.style.getPropertyValue('--bg') === '#0f1724'){
+        root.style.setProperty('--bg','#f6f8fb');root.style.setProperty('--card','#ffffff');root.style.setProperty('--text','#071022');root.style.setProperty('--muted','#6b7280');
+      } else {
+        root.style.setProperty('--bg','#0f1724');root.style.setProperty('--card','#0b1220');root.style.setProperty('--text','#e6eef8');root.style.setProperty('--muted','#94a3b8');
+      }
+    });
+
+    // download -> print to PDF
+    document.getElementById('download').addEventListener('click', ()=>window.print());
+
+    // animate skill bars after load
+    window.addEventListener('load', ()=>{
+      document.querySelectorAll('.skill .fill').forEach((el,i)=>{
+        setTimeout(()=>{el.style.width = el.style.width}, i*150);
+      });
+    });
+  </script>
+</body>
+</html>
